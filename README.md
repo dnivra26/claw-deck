@@ -37,12 +37,25 @@ Elgato Stream Deck MK.2 scripts to control [Claude Code](https://claude.ai/code)
 | 14 | Clear | `14-clear.sh` | Clear conversation |
 | 15 | Model | `15-model-picker.sh` | Switch between Opus / Sonnet / Haiku |
 
+## Icons
+
+Pre-built 144x144 PNG icons are in `icons/` — one per button, color-coded by row.
+
+To regenerate (requires Python 3 + Pillow):
+
+```bash
+python3 -m venv .venv
+.venv/bin/pip install Pillow
+.venv/bin/python3 generate-icons.py
+```
+
 ## Setup
 
 1. Clone this repo
 2. Open the Elgato Stream Deck app
 3. For each button, drag a **System: Open** action onto the key
 4. Set the path to the corresponding script, e.g. `/path/to/claw-deck/scripts/01-accept.sh`
+5. Click the button icon in Stream Deck and set it to the matching file in `icons/`
 
 ## How it works
 
