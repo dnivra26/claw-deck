@@ -1,8 +1,9 @@
 #!/bin/bash
-# Row 1 | Cancel/interrupt current operation
+# Row 1 | Cancel/interrupt current operation (Ctrl+C)
+# Sends ETX character (ASCII 3 = Ctrl+C)
 osascript -e '
-tell application "iTerm" to activate
-delay 0.1
-tell application "System Events"
-    keystroke "c" using control down
+tell application "iTerm"
+    tell current session of current window
+        write text (ASCII character 3)
+    end tell
 end tell'

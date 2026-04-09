@@ -1,8 +1,9 @@
 #!/bin/bash
-# Row 2 | Toggle extended thinking on/off
+# Row 2 | Toggle extended thinking (Cmd+T)
+# Sends Meta+T (Escape then t) which maps to the thinking toggle
 osascript -e '
-tell application "iTerm" to activate
-delay 0.1
-tell application "System Events"
-    keystroke "t" using command down
+tell application "iTerm"
+    tell current session of current window
+        write text (ASCII character 27) & "t" without newline
+    end tell
 end tell'

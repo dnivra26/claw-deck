@@ -1,10 +1,10 @@
 #!/bin/bash
 # Row 2 | Cycle permission mode forward (toward Auto)
 # Modes cycle: default → acceptEdits → plan → auto
-# Press repeatedly until you see the desired mode in the footer
+# Sends Escape then [Z which is the terminal escape sequence for Shift+Tab
 osascript -e '
-tell application "iTerm" to activate
-delay 0.1
-tell application "System Events"
-    key code 48 using shift down -- Shift+Tab
+tell application "iTerm"
+    tell current session of current window
+        write text (ASCII character 27) & "[Z" without newline
+    end tell
 end tell'

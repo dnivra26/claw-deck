@@ -1,8 +1,9 @@
 #!/bin/bash
 # Row 1 | Reject/decline current tool use
+# Sends Escape character (ASCII 27)
 osascript -e '
-tell application "iTerm" to activate
-delay 0.1
-tell application "System Events"
-    key code 53 -- Escape
+tell application "iTerm"
+    tell current session of current window
+        write text (ASCII character 27)
+    end tell
 end tell'
